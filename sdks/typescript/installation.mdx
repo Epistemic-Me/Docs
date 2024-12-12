@@ -1,0 +1,33 @@
+---
+title: 'TypeScript SDK Installation'
+description: 'Get started with the Epistemic Me TypeScript SDK'
+---
+
+## Installation
+
+Install the Epistemic Me TypeScript SDK using npm:
+
+```bash
+npm install @epistemicme/sdk
+```
+
+Or using yarn:
+
+```bash
+yarn add @epistemicme/sdk
+```
+
+## Configuration
+
+```typescript
+import { EpistemicMeClient } from '@epistemicme/sdk';
+
+const client = new EpistemicMeClient({
+  baseUrl: 'http://localhost:8080',
+  apiKey: 'your-api-key'
+});
+```
+
+## Requirements
+- Node.js 14 or higher
+- TypeScript 4.5 or higher 

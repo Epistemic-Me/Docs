@@ -1,0 +1,43 @@
+---
+title: 'Observation Contexts'
+description: 'Understanding and working with observation contexts'
+---
+
+## Observation Contexts
+
+An Observation Context is a set of beliefs that are grouped together based on how the Self-Model perceives the world. For example, if a Self-Model is tracking their sleep and heart rate variability, they might create an Observation Context for "Sleep and Heart Rate Variability".
+
+### Creating an Observation Context
+
+```python
+observation_context = epistemic_me.ObservationContext.create(
+    self_model_id="self_001",
+    name="Sleep and Heart Rate Variability",
+    possible_values=[
+        {"sleep_min": 0},
+        {"sleep_max": 16},
+        {"hrv_min": 0},
+        {"hrv_max": 150}
+    ],
+    context="sleep_and_hrv"
+)
+```
+
+### Working with Observation Contexts
+
+Observation Contexts can be used to:
+- Group related beliefs together
+- Provide context for falsifiable and causal beliefs
+- Define possible values for observations
+- Track historical observations and evidence
+
+### Conceptualized Belief Systems
+
+When working with Observation Contexts, you can create a Conceptualized Belief System that forms a graph data structure representing an ontology of a Self-Model:
+
+```python
+belief_system = epistemic_me.SelfModel.retrieve_belief_system(
+   id="self_001",
+   conceptualize=True
+)
+``` 

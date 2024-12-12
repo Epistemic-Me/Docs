@@ -1,0 +1,82 @@
+---
+title: 'Belief System API'
+description: 'Detailed API reference for working with belief systems'
+---
+
+## Belief System API
+
+### Retrieving a Belief System
+
+```python
+belief_system = epistemic_me.SelfModel.retrieve_belief_system(id="self_001")
+```
+
+Response:
+```python
+{
+   "observation_contexts": [],
+   "beliefs": []
+}
+```
+
+### Belief System with Metrics
+
+```python
+belief_system = epistemic_me.BeliefSystem.retrieve_belief_system(
+    id="self_001", 
+    metrics=True
+)
+```
+
+Response:
+```python
+{
+   "observation_contexts": [],
+   "beliefs": [],
+   "metrics": {
+      "total_beliefs": 0,
+      "total_falsifiable_beliefs": 0,
+      "total_causal_beliefs": 0,
+      "total_belief_statements": 0,
+   }
+}
+```
+
+### Conceptualized Belief Systems
+
+```python
+belief_system = epistemic_me.SelfModel.retrieve_belief_system(
+    id="self_001",
+    conceptualize=True
+)
+```
+
+Response:
+```python
+{
+   "observation_contexts" : [
+      {
+         "id" : "obs_context_001",
+         "name" : "Sleep and Heart Rate Variability",
+         "possible_values" : [
+            {"sleep_min": 0},
+            {"sleep_max": 16},
+            {"hrv_min": 0},
+            {"hrv_max": 150}
+         ],
+         "context" : "sleep_and_hrv",
+         "conditional_probabilities" : {
+            "sleep_8" : {
+               "hrv_45" : 0.2,
+               "hrv_50" : 0.4,
+               "hrv_55" : 0.3,
+               "hrv_60" : 0.1
+            }
+         }
+      }
+   ],
+   "beliefs": [
+      // Belief objects
+   ]
+}
+``` 

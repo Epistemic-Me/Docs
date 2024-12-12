@@ -1,0 +1,62 @@
+---
+title: 'Python SDK Basic Usage'
+description: 'Learn how to use the core features of the Epistemic Me Python SDK'
+---
+
+## Self-Model Operations
+
+### Creating a Self-Model
+```python
+import epistemic_me
+from epistemic_me.models import DialecticType
+
+# Initialize with your API key
+epistemic_me.api_key = "your-api-key"
+
+# Create a new self model
+new_self_model = epistemic_me.SelfModel.create(id="self_001")
+print(new_self_model)
+```
+
+### Working with Beliefs
+
+```python
+from epistemic_me.models import BeliefType
+
+# Create a belief statement
+belief_statement, suggestions = epistemic_me.SelfModel.create_belief(
+    id="self_001",
+    belief_type=BeliefType.BELIEF_STATEMENT,
+    content="Sleeping is good for your health"
+)
+
+# Create a falsifiable belief
+falsifiable_belief, suggestions = epistemic_me.SelfModel.create_belief(
+    id="self_001",
+    belief_type=BeliefType.FALSIFIABLE_BELIEF,
+    content="Sleeping 8 hours per night reduces HRV",
+    extrapolate_contexts=True
+)
+
+# Retrieve belief system
+belief_system = epistemic_me.SelfModel.retrieve_belief_system(id="self_001")
+```
+
+### Managing Dialectics
+
+```python
+# Create a dialectic
+dialectic = epistemic_me.Dialectic.create(
+    self_model_id="self_001",
+    dialectic_type=DialecticType.DEFAULT
+)
+
+# Update with question-answer
+dialectic.update(
+    question="How often do you exercise?",
+    answer="I exercise three times a week"
+)
+
+# List dialectics for a self model
+dialectics = epistemic_me.SelfModel.list_dialectics(id="self_001")
+```

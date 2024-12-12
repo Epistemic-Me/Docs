@@ -1,0 +1,22 @@
+---
+title: 'Authentication'
+description: 'Authenticating with the Epistemic Me API'
+---
+
+## API Keys
+
+All interactions with Epistemic Me require authentication using an API key.
+
+### Python SDK
+```python
+import epistemic_me
+epistemic_me.api_key = "your-api-key"
+```
+
+### TypeScript SDK
+```typescript
+const client = new EpistemicMeClient({
+  baseUrl: 'http://localhost:8080',
+  apiKey: 'your-api-key'
+});
+``` 

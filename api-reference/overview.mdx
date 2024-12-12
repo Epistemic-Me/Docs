@@ -1,0 +1,49 @@
+---
+title: 'API Reference'
+description: 'Complete reference for the Epistemic Me Python SDK'
+---
+
+## API Reference
+
+### Self-Model Methods
+
+```python
+# Create a new self model
+SelfModel.create(id: str, philosophies: List[str] = ["default"])
+
+# Retrieve an existing self model
+SelfModel.retrieve(id: str)
+
+# Get belief system
+SelfModel.retrieve_belief_system(id: str)
+
+# List dialectics
+SelfModel.list_dialectics(id: str)
+```
+
+### Dialectic Methods
+
+```python
+# Create a new dialectic
+Dialectic.create(self_model_id: str)
+
+# Create a dialectic interaction
+DialecticInteraction.create(
+    dialectic_id: str,
+    question: str = None,
+    answer: str = None,
+    status: str = "Pending"
+)
+```
+
+### Belief Methods
+
+```python
+# Create a new belief
+SelfModel.create_belief(
+    id: str,
+    belief_type: BeliefType,
+    content: str,
+    extrapolate_contexts: bool = False
+)
+``` 

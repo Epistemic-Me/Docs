@@ -1,0 +1,60 @@
+---
+title: 'TypeScript SDK Basic Usage'
+description: 'Learn how to use the core features of the Epistemic Me TypeScript SDK'
+---
+
+## Basic Usage
+
+### Creating a Self Model
+
+```typescript
+import { EpistemicMeClient, DialecticType } from '@epistemicme/sdk';
+
+const client = new EpistemicMeClient({
+  baseUrl: 'http://localhost:8080',
+  apiKey: 'your-api-key'
+});
+
+// Create a self model
+const selfModel = await client.createSelfModel({
+  userId: 'user123'
+});
+```
+
+### Working with Beliefs
+
+```typescript
+import { BeliefType } from '@epistemicme/sdk';
+
+// Create a belief
+const belief = await client.createBelief({
+  userId: 'user123',
+  content: 'Regular exercise improves mental clarity',
+  beliefType: BeliefType.STATEMENT
+});
+
+// Retrieve belief system
+const beliefSystem = await client.retrieveBeliefSystem({
+  userId: 'user123'
+});
+```
+
+### Managing Dialectics
+
+```typescript
+// Create a dialectic
+const dialectic = await client.createDialectic({
+  userId: 'user123',
+  dialecticType: DialecticType.DEFAULT
+});
+
+// Update with question-answer
+const updateResp = await client.updateDialectic({
+  userId: 'user123',
+  dialecticId: dialectic.id,
+  answer: {
+    userAnswer: 'I exercise three times a week',
+    createdAtMillisUtc: BigInt(Date.now())
+  }
+});
+``` 

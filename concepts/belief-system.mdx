@@ -1,0 +1,32 @@
+---
+title: 'Belief System'
+description: 'Understanding belief systems and their structure'
+---
+
+## Belief System
+
+The Belief System is a set of beliefs that can be attributed to a particular instantiated Self. Beliefs are collected over time through engaging the user in Dialectic, a core capability of Epistemic Me. As beliefs accumulate over time they can then evidenced through an epistemic strategy outlined in Philosophies that have been attached to the Self.
+
+### Types of Beliefs
+
+Beliefs can be expressed in a number of ways:
+
+#### Belief Statement
+
+A Belief Statement might capture a relatively ambiguous concept. A Belief Statement does not have an explicit relationship with an Observation Context, but one can be inferred, optionally.
+
+```python
+belief_statement, suggestions = epistemic_me.SelfModel.create_belief(
+   id="self_001",
+   belief_type=epistemic_me.BeliefType.BELIEF_STATEMENT,
+   content="Sleeping is good for your health",
+)
+```
+
+#### Falsifiable Belief
+
+A Falsifiable Belief is a belief that can be tested against observed evidence. For example, "Sleeping 8 hours per night reduces a person's mortality as demonstrated through reduced Heart Rate Variability (HRV)" is a falsifiable belief.
+
+#### Causal Belief 
+
+A Causal Belief is a belief that is used to make predictions about the future state of the world. A Causal Belief has an explicit relationship with an Observation Context and it uses both historical evidence and counterfactuals to make a prediction about the future state of the world. 

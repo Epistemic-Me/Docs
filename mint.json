@@ -1,91 +1,98 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Epistemic Me",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
     "primary": "#0D9373",
     "light": "#07C983",
-    "dark": "#0D9373",
-    "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
-    }
+    "dark": "#0D9373"
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@epistemicme.ai"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://dashboard.epistemicme.ai"
   },
-  "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
-  ],
   "anchors": [
     {
-      "name": "Documentation",
+      "name": "API Reference",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "api-reference"
     },
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/epistemic-me"
     }
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Getting Started",
       "pages": [
         "introduction",
-        "quickstart",
-        "development"
+        "quickstart"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Core Concepts",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "concepts/overview",
+        "concepts/belief-system",
+        "concepts/dialectic",
+        "concepts/philosophy",
+        "concepts/observation-contexts"
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "Guides",
       "pages": [
-        "api-reference/introduction"
+        "guides/account-management",
+        "guides/authentication",
+        "guides/error-handling",
+        "guides/best-practices"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "SDK Guides",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "sdks/overview",
+        {
+          "group": "Python SDK",
+          "pages": [
+            "sdks/python/installation",
+            "sdks/python/basic-usage",
+            "sdks/python/chat-integration"
+          ]
+        },
+        {
+          "group": "TypeScript SDK",
+          "pages": [
+            "sdks/typescript/installation",
+            "sdks/typescript/basic-usage",
+            "sdks/typescript/chat-integration"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        "api-reference/overview",
+        "api-reference/belief-system",
+        "api-reference/dialectic"
       ]
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://linkedin.com/company/mintlify"
+    "twitter": "https://twitter.com/epistemic_me",
+    "github": "https://github.com/epistemic-me"
   }
 }

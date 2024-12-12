@@ -1,0 +1,29 @@
+---
+title: 'Account Management'
+description: 'Managing developers and users in Epistemic Me'
+---
+
+## Developer Accounts
+
+### Creating a Developer Account
+
+```python
+import epistemic_me
+epistemic_me.api_key = "..."
+
+new_developer = epistemic_me.Developer.create(
+    name="John Doe",
+    email="john@example.com"
+)
+```
+
+### Managing Users
+
+```python
+# Create a user
+new_user = epistemic_me.User.create(
+    developer_id="dev_001",
+    name="Alice Smith",
+    email="alice@example.com"
+)
+``` 

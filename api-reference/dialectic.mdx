@@ -1,0 +1,117 @@
+---
+title: 'Dialectic API'
+description: 'API reference for working with dialectics'
+---
+
+## Dialectic API
+
+### Creating a Dialectic
+
+```python
+dialectic = epistemic_me.Dialectic.create(self_model_id="self_001")
+```
+
+Response:
+```python
+{
+   "id" : "dialectic_001",
+   "self_model_id" : "self_001",
+   "interactions" : [],
+   "belief_system" : {}
+}
+```
+
+### Question-Answer Interactions
+
+```python
+# Create a question interaction
+dialectic_interaction = epistemic_me.DialecticInteraction.create(
+   dialectic_id=dialectic.id,
+   proposed_answer="...",
+   question="What is the meaning of life?",
+   status="Pending Answer"
+)
+
+# Answer the question
+dialectic_interaction.modify(
+   answer="...",
+   status="Answered"
+)
+
+# Confirm the belief update
+dialectic_interaction.modify(
+   belief_updates="Confirmed",
+   status="Beliefs Updated"
+)
+```
+
+### Dry Run Option
+
+Test a dialectic without updating the belief system:
+
+```python
+dialectic.update(
+    question="What is your sleep schedule?",
+    answer="I sleep 8 hours per night",
+    dry_run=True
+)
+```
+
+### Listing Dialectics
+
+```python
+dialectics = epistemic_me.SelfModel.list_dialectics(id="self_001")
+```
+
+Response:
+```python
+[
+   {
+      "id" : "dialectic_001",
+      "self_model_id" : "self_001",
+      "interactions" : [],
+      "belief_system" : {}
+   }
+]
+```
+
+### Updating a Dialectic
+
+The `update` method supports both structured question-answer pairs and unstructured chat blobs:
+
+```python
+# Using structured Q&A
+dialectic.update(
+    question="What is your sleep schedule?",
+    answer="I sleep 8 hours per night"
+)
+
+# Using chat blobs
+dialectic.update(
+    question_blob="How would you describe your sleep habits?",
+    answer_blob="I usually get about 8 hours of sleep per night"
+)
+```
+
+The chat blob format is particularly useful when processing conversations from chat interfaces, where the interaction may be more natural and less structured.
+
+### Processing Chat Conversations
+
+To process a chat conversation:
+
+```python
+conversation = [
+    {"role": "assistant", "content": "How would you describe your sleep habits?"},
+    {"role": "user", "content": "I usually get about 8 hours of sleep per night"}
+]
+
+dialectic = epistemic_me.Dialectic.create(self_model_id="user123")
+
+for message in conversation:
+    if message["role"] == "assistant":
+        dialectic.update(question_blob=message["content"])
+    else:
+        dialectic.update(answer_blob=message["content"])
+```
+
+The belief system will be automatically updated based on the content of the conversation. 

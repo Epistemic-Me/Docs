@@ -1,0 +1,37 @@
+---
+title: 'Error Handling'
+description: 'How to handle errors in Epistemic Me'
+---
+
+## Common Errors
+
+### API Errors
+```python
+try:
+    belief = epistemic_me.Belief.create(
+        user_id="user123",
+        content="Regular exercise improves mental clarity"
+    )
+except epistemic_me.APIError as e:
+    print(f"API Error: {e}")
+except epistemic_me.AuthenticationError as e:
+    print(f"Authentication failed: {e}")
+except epistemic_me.ValidationError as e:
+    print(f"Validation failed: {e}")
+```
+
+### TypeScript Error Handling
+```typescript
+try {
+  const dialectic = await client.createDialectic({
+    userId: "user123",
+    dialecticType: DialecticType.DEFAULT
+  });
+} catch (error) {
+  if (error instanceof APIError) {
+    console.error('API Error:', error.message);
+  } else if (error instanceof AuthenticationError) {
+    console.error('Authentication failed:', error.message);
+  }
+}
+``` 

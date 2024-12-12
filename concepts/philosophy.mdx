@@ -1,0 +1,35 @@
+---
+title: 'Philosophy'
+description: 'Understanding philosophies and their role in self-models'
+---
+
+## Philosophy
+
+A Self-Model can use a Philosophy to conceptualize a Belief System and to contextualize Dialectics.
+
+A Philosophy is represented as a type of Observation Context that contextualizes epistemic Observation Contexts, ie, wraps the Observation Contexts in a Belief System.
+
+### Purpose
+
+Philosophies serve as a specific epistemology and optional ontology that act as filters, or a lens, across different events that a user receives and in turn are used to update a user's belief model.
+
+Philosophies also serve to engage the user in dialectic based upon their current belief system. Philosophies are often written by a developer themselves or can be chosen from a catalog of existing Philosophies.
+
+### The Default Philosophy
+
+The Default Philosophy is automatically attached to a Self-Model when it is created. It provides observation contexts for three core categories:
+
+- **Teleological Context**: A set of beliefs that provide assumptions about the Self-Models properties of becoming
+- **Metaphysical Context**: A set of beliefs that provide assumptions about the Self-Models' being
+- **Epistemic Context**: A set of beliefs that provide assumptions about the Self-Models internal world model
+
+```python
+import epistemic_me
+epistemic_me.api_key = "..."
+
+philosophy = epistemic_me.Philosophy.create(
+   self_model_id="self_001",
+   description="...",
+   extrapolate_contexts=False
+)
+``` 

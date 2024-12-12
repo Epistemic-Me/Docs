@@ -1,0 +1,26 @@
+---
+title: 'Dialectic'
+description: 'Understanding dialectics and interactions'
+---
+
+## Dialectic
+
+A Dialectic updates a Self-Model's Belief System based on the discrepancy between the prediction and the observed state of the world. Only one Dialectic can be active at a time for a given Self-Model.
+
+### Dialectic Interactions
+
+During a Dialectic session, the Dialectic can have three types of Interactions:
+
+1. **Question -> Answer.** A question posed to the user, and the answer provided updates the user's Self-Model's Belief System.
+2. **Hypothesis -> Evidence.** An event that is observed to evidence a belief.
+3. **Action -> Outcomes.** An event that is observed to characterize the results of an action.
+
+### Creating a Dialectic Session
+
+```python
+import epistemic_me
+epistemic_me.api_key = "..."
+
+self_model = epistemic_me.SelfModel.create(id="self_001")
+dialectic = epistemic_me.Dialectic.create(self_model_id=self_model.id)
+``` 
