@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Epistemic Me",
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/em-logo.svg",
+    "dark": "/logo/em-logo-dark.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
@@ -38,7 +38,17 @@
       "group": "Getting Started",
       "pages": [
         "introduction",
-        "quickstart"
+        "quickstart",
+        {
+          "group": "Philosophy History",
+          "pages": [
+            "philosophy/overview",
+            "philosophy/pre-modernism",
+            "philosophy/modernism", 
+            "philosophy/post-modernism",
+            "philosophy/meta-modernism"
+          ]
+        }
       ]
     },
     {
