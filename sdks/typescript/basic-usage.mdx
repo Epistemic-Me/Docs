@@ -57,4 +57,32 @@ const updateResp = await client.updateDialectic({
     createdAtMillisUtc: BigInt(Date.now())
   }
 });
-``` 
+```
+
+### Managing Philosophies
+
+You can create and update philosophies, and extract observation contexts from their descriptions:
+
+```typescript
+// Create a philosophy with context extraction
+const createPhilosophyResp = await client.createPhilosophy({
+  description: '# My Philosophy\n\n## Narrative\n[[C: Context1]] [[S: state1]] → [[S: state2]]',
+  extrapolateContexts: true
+});
+
+console.log(createPhilosophyResp.philosophy); // The created philosophy object
+console.log(createPhilosophyResp.extrapolatedObservationContexts); // Array of extracted contexts
+
+// Update a philosophy and extract new contexts
+const updatePhilosophyResp = await client.updatePhilosophy({
+  philosophyId: createPhilosophyResp.philosophy.id,
+  description: '# Updated Philosophy\n\n## Narrative\n[[C: Context2]] [[S: state3]] → [[S: state4]]',
+  extrapolateContexts: true
+});
+
+console.log(updatePhilosophyResp.philosophy); // The updated philosophy object
+console.log(updatePhilosophyResp.extrapolatedObservationContexts); // Array of new extracted contexts
+```
+
+- Set `extrapolateContexts: true` to automatically extract observation contexts from the description markup.
+- The response includes `extrapolatedObservationContexts`, an array of context objects with `name` and other properties. 
