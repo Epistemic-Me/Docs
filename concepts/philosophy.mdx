@@ -23,6 +23,38 @@ The Default Philosophy is automatically attached to a Self-Model when it is crea
 - **Metaphysical Context**: A set of beliefs that provide assumptions about the Self-Models' being
 - **Epistemic Context**: A set of beliefs that provide assumptions about the Self-Models internal world model
 
+### Python SDK Usage
+
+#### Create a Philosophy
+```python
+import epistemic_me
+philosophy = epistemic_me.Philosophy.create(
+    description="# My Philosophy\n\n## Narrative\n[[C: Context1]] [[S: state1]] → [[S: state2]]",
+    extrapolate_contexts=True
+)
+```
+
+#### Update a Philosophy
+```python
+updated = epistemic_me.Philosophy.update(
+    philosophy_id=philosophy["philosophy"]["id"],
+    description="# Updated Philosophy\n\n## Narrative\n[[C: Context2]] [[S: state3]] → [[S: state4]]",
+    extrapolate_contexts=False
+)
+```
+
+#### Add a Philosophy to a Self Model
+```python
+result = epistemic_me.Philosophy.add_to_self_model(
+    self_model_id="self_001",
+    philosophy_id=philosophy["philosophy"]["id"]
+)
+```
+
+- `create`: Creates a new philosophy. Returns the created philosophy and (optionally) extrapolated observation contexts.
+- `update`: Updates an existing philosophy by ID.
+- `add_to_self_model`: Associates a philosophy with a self model.
+
 ```python
 import epistemic_me
 epistemic_me.api_key = "..."
